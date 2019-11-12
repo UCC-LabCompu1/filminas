@@ -5,22 +5,27 @@
 <script src="js/reveal.js"></script>
 
 <script>
-	// More info https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-		history: true,
-
-		// More info https://github.com/hakimel/reveal.js#dependencies
-		dependencies: [
-			{src: 'plugin/markdown/marked.js'},
-			{src: 'plugin/markdown/markdown.js'},
-			{src: 'plugin/notes/notes.js', async: true},
-			{
-				src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-				hljs.initHighlightingOnLoad();
-			}
-			}
-		]
-	});
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        // Display presentation control arrows
+        controls: true,
+        controlsTutorial: true,
+        progress: true,
+        slideNumber: true,
+        history: false,
+        mouseWheel: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
 </script>
 </body>
 </html>

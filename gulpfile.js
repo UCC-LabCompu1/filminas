@@ -4,29 +4,6 @@ var deploy = require('gulp-gh-pages');
 
 
 // Mueve archivos de assets
-gulp.task('mover', ['moverReveal', 'moverAssets']);
-
-
-gulp.task('html-include', function () {
-    return gulp.src('src/slides/*.html')
-        .pipe(include())
-        .pipe(gulp.dest('build'));
-});
-
-
-gulp.task('watch', ['html-include', 'mover'], function () {
-    return gulp.watch([
-        './src/slides/*.html',
-        './templates/*.html',
-        './assets/**/*'
-    ], ['html-include', 'mover']);
-});
-
-
-gulp.task('default', ['watch']);
-
-
-// Mueve archivos de assets
 gulp.task('moverAssets', function () {
     return gulp.src('assets/**')
         .pipe(gulp.dest('build'));
@@ -42,10 +19,35 @@ gulp.task('moverReveal', function () {
         .pipe(gulp.dest('build'));
 });
 
+
+// Mueve archivos de assets
+gulp.task('mover', gulp.series('moverReveal', 'moverAssets'));
+
+
+gulp.task('html-include', function () {
+    return gulp.src('src/slides/*.html')
+        .pipe(include())
+        .pipe(gulp.dest('build'));
+});
+
+
+gulp.task('watch', gulp.parallel('html-include', 'mover', function () {
+    gulp.watch([
+        './src/slides/*.html',
+        './templates/*.html',
+        './assets/**/*'
+    ], gulp.parallel('html-include', 'mover'));
+
+}));
+
+
+gulp.task('default', gulp.series('watch'));
+
+
 /**
  * Push build to gh-pages
  */
-gulp.task('deploy', ['html-include', 'mover'], function () {
+gulp.task('deploy', gulp.series('html-include', 'mover'), function () {
     return gulp.src("./build/**/*")
-        .pipe(deploy())
+        .pipe(gulp.dest('build'))
 });
