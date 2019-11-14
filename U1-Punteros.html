@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+    <link href='images/code.ico' rel='shortcut icon' type='image/x-icon'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>Punteros</title>
+    <meta name="description" content="Primera Clase">
+    <meta name="author" content="
+    Ricardo Martin Marcucci
+">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="css/filminas.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+<section>
+    <h1>Punteros</h1>
+    
+
+    <p>
+        <small>Created by
+            <a href="https://t.me/edme88" target="_blank">
+                <i class="fa fa-telegram"></i>edme88
+            </a> &
+            <a href="https://t.me/rmarku" target="_blank">
+                <i class="fa fa-telegram"></i>rmarku
+            </a>
+        </small>
+    </p>
+</section>
+
+<section>
+    <h2>El Puntero o apuntador</h2>
+    Los punteros son variables cuyos valores son direcciones de memoria.<br>
+    <img src="images/int_punteros.png" alt="">
+</section>
+<section>
+    <h2>Punteros</h2>
+    <ul>
+        <li>Una <b>variable</b> contiene un valor especifico</li>
+        <li>El <b>puntero</b> contiene la direccion de una variable que contiene un valor especifico.</li>
+        <li>Las variables hacen referencia <i>directa</i> a un valor.</li>
+        <li>Los punteros hacen referencia <i>indirecta</i> a un valor.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Punteros</h2>
+    <h3>Sintaxis</h3>
+    <pre><code class="hljs c++" data-trim>
+        int *miPuntero;
+    </code></pre>
+</section>
+<section>
+    <h2>Punteros</h2>
+    <h3>Operador dirección</h3>
+    El operador dirección (&) es un operador uniario que obtiene la dirección de memoria de su operando.
+    <pre><code class="hljs c++" data-trim>
+        int i = 5;
+        int *iPtr = & ;
+    </code></pre>
+</section>
+
+<section>
+    <h2>Punteros</h2>
+    <h3>ejemplo de uso:</h3>
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+}
+    </code></pre>
+</section>
+<section>
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>0x325485</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325486</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+&rArr;int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><span class="fragment" style="color:#00bb00">*miPuntero</span></td>
+                            <td>0x325485</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325486</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+&rArr;   int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fragment" style="color:#00bb00">num</span></td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+&rArr;   int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+    int num = 5;
+
+&rArr;   cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <span style="font-size: 0.6em">
+
+        <span class="fragment">
+            5
+        </span>
+        </span>
+
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+&rArr;    cout << &num << endl;
+
+    miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <p style="font-size: 0.6em">
+
+            5<br>
+            <span class="fragment">
+            0x325486
+        </span>
+        </p>
+
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td><span class="fragment" style="color:#00bb00">0x325486</span></td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+&rArr;   miPuntero = &num ;
+
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <div style="font-size: 0.6em">
+            5<br>
+            0x325486
+        </div>
+
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td>0x325486</td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+&rArr;   cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <div style="font-size: 0.6em">
+            5<br>
+            0x325486<br>
+            <span class="fragment">0x325486</span>
+        </div>
+
+    </section>
+
+    <section>
+        <h3>ejemplo de uso:</h3>
+        <table>
+            <tr>
+                <td>
+                    Memoria
+                    <table style="font-size: 0.45em">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirc</th>
+                            <th>Dato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>*miPuntero</td>
+                            <td>0x325485</td>
+                            <td>0x325486</td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>0x325486</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325487</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325488</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325489</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325490</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325491</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325492</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325493</td>
+                            <td>0x3210</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>0x325494</td>
+                            <td>0x3210</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="65%">
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+ int main(){
+    int *miPuntero;
+    int num = 5;
+
+    cout << num << endl;
+    cout << &num << endl;
+
+    miPuntero = &num ;
+
+&rArr;   cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+
+    return 0;
+    }
+    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <div style="font-size: 0.6em">
+            5<br>
+            0x325486<br>
+            0x325486<br>
+            <span class="fragment">5</span>
+        </div>
+
+    </section>
+
+</section>
+
+<section>
+    <button onclick="run(this);" style="float: right;">
+        <i class="fas fa-play"></i>
+    </button>
+    <pre><code id="code1" class="hljs c++" data-trim contenteditable spellcheck="false">
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int num = 5;
+    cout << num << endl;
+    cout << &num << endl;
+    miPuntero = &num ;
+    cout << miPuntero << endl;
+    cout << *miPuntero << endl;
+    return 0;
+}
+</code></pre>
+    <div class="output">
+
+    </div>
+</section>
+
+
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        // Display presentation control arrows
+        controls: true,
+        controlsTutorial: true,
+        progress: true,
+        slideNumber: true,
+        history: false,
+        mouseWheel: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
+

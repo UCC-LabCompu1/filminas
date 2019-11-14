@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+    <link href='images/code.ico' rel='shortcut icon' type='image/x-icon'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>Memoria Dinámica</title>
+    <meta name="description" content="Tercera Clase">
+    <meta name="author" content="
+    Ricardo Martin Marcucci
+">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="css/filminas.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+<section>
+    <h1>Memoria Dinámica</h1>
+    
+
+    <p>
+        <small>Created by
+            <a href="https://t.me/edme88" target="_blank">
+                <i class="fa fa-telegram"></i>edme88
+            </a> &
+            <a href="https://t.me/rmarku" target="_blank">
+                <i class="fa fa-telegram"></i>rmarku
+            </a>
+        </small>
+    </p>
+</section>
+
+<section>
+    <h2>Asignación dinámica de memoria</h2>
+    <ul>
+        <li>Almacenamiento estático y dinámico</li>
+        <li>Funciones malloc() y free() (C)</li>
+        <li>Funciones new y delete (C++)</li>
+        <li>Ejemplos de asignación de memoria para arreglos</li>
+        <li>Ejemplos de asignación de memoria para matrices</li>
+    </ul>
+</section>
+<section>
+    <h2>Almacenamiento estático</h2>
+    <p>La forma convencional de almacenar las variables en memoria se denomina estático.</p>
+    <p>Con este método, al inicio del programa le informamos cuanta memoria necesitamos</p>
+</section>
+<section>
+    <h2>Almacenamiento estático</h2>
+    <h4>Inconvenientes</h4>
+    <ul>
+        <li>No puedo utilizar mas datos de los que reserve en código</li>
+        <li>Para hacerlo genérico reservo muchos mas datos de los que utilizo</li>
+        <li>Solo implementable en tiempo de compilación</li>
+    </ul>
+    <h4>Ventaja</h4>
+    <ul>
+        <li>No me preocupo por el manejo de memoria</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Almacenamiento dinámico</h2>
+    <p>En tiempo de ejecución, le digo al Sistema Operativo que me de mas memoria</p>
+    <p>Esto permite trabajar con cualquier tamaño de datos</p>
+</section>
+
+<section>
+    <h2>Almacenamiento dinámico</h2>
+    <h4>Ventaja</h4>
+    <ul>
+        <li>Puedo utilizar solo la memoria que me hace falta</li>
+        <li>Puedo pedir mas memoria a demanda</li>
+    </ul>
+    <h4>Inconvenientes</h4>
+    <ul>
+        <li>Debo asegurarme de liberar la memoria que ya no utilizo</li>
+    </ul>
+</section>
+<section>
+    <h2>malloc: Memory Allocation</h2>
+    Allocation = Asignación<br>
+    Allocation != Alocar <br>
+    Alocar = Causar locura <br>
+    Luego, la memoria no se aloca
+</section>
+<section>
+    <h2>malloc: Memory Allocation</h2>
+    <h3>Sintaxis</h3>
+    <pre><code class="hljs c++" data-trim>
+        void* malloc(cantBytes);
+    </code></pre>
+    Se le piden <i>cantBytes</i> al Sistema Operativo. Este devuelve un puntero
+    a donde comienza dicha memoria o NULL si no hay memoria disponible
+    <p>Nota: debo castear void al tipo de datos al que va a apuntar el puntero</p>
+</section>
+
+<section>
+    <h2>malloc: Ejemplo</h2>
+
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int cant = 5;
+    cin >> cant;
+    miPuntero = (int*)malloc( cant * sizeof(int));
+    int i;
+    for( i = 0 ; i < cant ; i++ ){
+        cin >> miPuntero[i];
+    }
+}
+</code></pre>
+
+</section>
+
+<section>
+    <h2>malloc: Ejemplo</h2>
+    <h3>¿Y eso es todo?</h3>
+    <p>No, debo verificar que malloc pudo reservarme esa memoria, de lo contrario me devuelve NULL</p>
+
+</section>
+<section>
+    <h2>malloc: Ejemplo</h2>
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int cant = 5;
+    cin >> cant;
+    miPuntero = (int*)malloc( cant * sizeof(int));
+    if(miPuntero == NULL){
+        cout << "No tengo tanta memoria!";
+        exit(EXIT_FAILURE);
+    }
+    int i;
+    for( i = 0 ; i < cant ; i++ ){
+        cin >> miPuntero[i];
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h2>malloc: Ejemplo</h2>
+    <h3>Bueno, ahora si eso es todo</h3>
+    <p>No!, al no utilizar mas esos recursos, debo liberar esa memoria.<br> Devolverle al sistema operativo lo que me prestó.</p>
+    <img src="images/memhog.jpg" alt="" style="height: 300px">
+</section>
+<section>
+    <h2>malloc: Ejemplo</h2>
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int cant = 5;
+    cin >> cant;
+    miPuntero = (int*)malloc( cant * sizeof(int));
+    if(miPuntero == NULL){
+        cout << "No tengo tanta memoria!";
+        exit(EXIT_FAILURE);
+    }
+    int i;
+    for( i = 0 ; i < cant ; i++ ){
+        cin >> miPuntero[i];
+    }
+    for( i = 0 ; i < cant ; i++ ){
+        cout << "dato " << i << " = " <<  miPuntero[i];
+    }
+    free(miPuntero);
+}
+</code></pre>
+</section>
+
+<section>
+    <h2>new/delete: Asignación de memoria en C++</h2>
+    <p>En C++ se introducen las funciones new y delete, que vienen a remplazar a malloc() y free()</p>
+<p>New tiene como ventaja que no hay que pasarle los valores en bytes, sino el tipo de dato que quiero.</p>
+    <p>En realidad, new y delete hacen mas cosas que malloc y free. Esto es debido que si hago un new de una clase
+        (POO) new ejecuta el constructor de la clase.</p>
+</section>
+
+<section>
+    <h2>malloc: Ejemplo</h2>
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int *miPuntero;
+    int cant = 5;
+    cin >> cant;
+    miPuntero = new int[cant];
+    if(miPuntero == NULL){
+        cout << "No tengo tanta memoria!";
+        exit(EXIT_FAILURE);
+    }
+    int i;
+    for( i = 0 ; i < cant ; i++ ){
+        cin >> miPuntero[i];
+    }
+    for( i = 0 ; i < cant ; i++ ){
+        cout << "dato " << i << " = " <<  miPuntero[i];
+    }
+    delete miPuntero;
+}
+</code></pre>
+</section>
+
+
+<section>
+    <h2>Matrices</h2>
+    <p>Las matrices son arreglos de arreglos, pero mediante el uso de memoria dinamica, cada arreglo puede tener tamaño distinto.</p>
+    <p>Luego, es mas general que una matriz.</p>
+    <p>Debo pedir memoria para el arreglo de arreglos y para cada uno de esos arreglos</p>
+</section>
+
+<section>
+    <h2>Matrices: Ejemplo</h2>
+    <pre><code class="hljs c++" data-trim>
+#include &lt;iostream&gt;
+
+int main(){
+    int **miMatriz;
+    int filas, columnas;
+    cin >> filas;
+    cin >> columnas;
+    miMatriz = (int**) malloc( filas * sizeof(int*) );
+    // Debería vefiricar que miMatriz no es NULL
+    int i;
+    for( i = 0 ; i < filas ; i++ ){
+        miMatriz[i] = (int*) malloc( columnas * sizeof(int) );
+        // Debería vefiricar que miMatriz[i] no es NULL
+    }
+    // Lo mismo con el Free, debo liberar cada malloc que hice.
+
+    for( i = 0 ; i < filas ; i++ ){
+        free(miMatriz[i]);
+    }
+    free(miMatriz);
+}
+</code></pre>
+</section>
+
+<section>
+    <h2>malloc, calloc, realloc</h2>
+    <p>Hay dos funciones mas que nos simplifican el uso de memoria con malloc</p>
+    <h3>Calloc</h3>
+    Similar a Malloc, pero llena de 0 la memoria solicitada:
+    <pre><code class="hljs c++" data-trim>
+        void* calloc(cant_elementos, tamaño);
+    </code></pre>
+    <h3>Realloc</h3>
+    Aumenta el tamaño de memoria asignado anteriormente y copia el contenido inicial al nuevo.
+    <pre><code class="hljs c++" data-trim>
+        void* realloc(puntero_anterior, tamaño);
+    </code></pre>
+</section>
+
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        // Display presentation control arrows
+        controls: true,
+        controlsTutorial: true,
+        progress: true,
+        slideNumber: true,
+        history: false,
+        mouseWheel: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
+

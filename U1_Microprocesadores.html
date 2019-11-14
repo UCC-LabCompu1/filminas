@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
 <head>
+
+    <link href='images/code.ico' rel='shortcut icon' type='image/x-icon'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
     <title>Microprocesadores</title>
@@ -18,6 +21,7 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+
     <link rel="stylesheet" href="css/filminas.css">
 
     <!-- Printing and PDF exports -->
@@ -40,6 +44,7 @@
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
+
 
 <section>
     <h1>Microprocesadores</h1>
@@ -130,43 +135,43 @@
 <!--</section>-->
 <section>
     <h1>Historia actual</h1>
-    <h2>Athlon APUs 7&deg; generación</h2>
+    <h2>Athlon  A-Series</h2>
     <ul>
         <li><b>Nucleos:</b>4</li>
-        <li><b>Frec:</b>3.6Ghz - 3.8Ghz</li>
+        <li><b>Frec:</b>2.8Ghz - 3.9Ghz</li>
         <li><b>Cache:</b>
         <ul>
-            <li>L1: 128Kb - 256Kb</li>
-            <li>L2: 2Mb</li>
+            <li>L1: 96kb - 256Kb</li>
+            <li>L2: 1Mb - 4Mb</li>
         </ul>
         </li>
         <li><b>CMOS: 28nm</b></li>
-        <li><b>TDP:</b>65W</li>
+        <li><b>TDP:</b>35w - 95W</li>
     </ul>
-    <img src="images/Microprocesadores/athlon-apu-640x640.png" alt="" style="height: 400px;float: right">
+    <img src="images/Microprocesadores/a-series-660x440.png" alt=""  style="height: 400px;float: right">
 </section>
 <section>
     <h1>Historia actual</h1>
-    <h2>A-series APUs</h2>
+    <h2>Athlon</h2>
     <ul>
         <li><b>Nucleos:</b>2 - 4</li>
-        <li><b>Frec:</b>3.1Ghz - 4.2Ghz</li>
+        <li><b>Frec:</b>1.6Ghz - 4Ghz</li>
         <li><b>Cache:</b>
             <ul>
-                <li>L1: 128Kb - 256Kb</li>
-                <li>L2: 4Mb</li>
+                <li>L1: 128Kb - 512Kb</li>
+                <li>L2: 1.5M - 4Mb</li>
             </ul>
         </li>
-        <li><b>CMOS: 28nm</b></li>
-        <li><b>TDP:</b>65W</li>
+        <li><b>CMOS: 14nm</b></li>
+        <li><b>TDP:</b>25w - 100w</li>
     </ul>
-    <img src="images/Microprocesadores/a-series-660x440.png" alt=""  style="height: 300px;float: right">
+    <img src="images/Microprocesadores/athlon-apu-640x640.png" alt="" style="height: 300px;float: right">
 </section>
 <section>
     <h1>Historia actual</h1>
     <h2>Ryzen 3-5-7</h2>
     <ul>
-    <li><b>Nucleos:</b> 4-8</li>
+    <li><b>Nucleos:</b> 4-16</li>
     <li><b>Frec:</b> 3Ghz - 4.1Ghz</li>
     <li><b>Cache:</b>
         <ul>
@@ -175,8 +180,8 @@
             <li>L3: 4Mb - 16Mb</li>
         </ul>
     </li>
-    <li><b>CMOS: 12nm</b></li>
-    <li><b>TDP:</b> 65W - 105W</li>
+    <li><b>CMOS: 7nm - 14nm</b></li>
+    <li><b>TDP:</b> 35W - 105W</li>
 </ul>
     <img class="noBorder" src="images/Microprocesadores/Ryzen.png" alt=""  style="width: 400px;float: right">
 </section>
@@ -184,17 +189,17 @@
     <h1>Historia actual</h1>
     <h2>Ryzen Threadripper</h2>
     <ul>
-        <li><b>Nucleos:</b> 8-16</li>
+        <li><b>Nucleos:</b> 8-32</li>
         <li><b>Frec:</b> 3Ghz - 4.1Ghz</li>
         <li><b>Cache:</b>
             <ul>
-                <li>L1: 768Kb - 1.5Mb</li>
-                <li>L2: 4Mb - 8Mb</li>
-                <li>L3: 16Mb - 32Mb</li>
+                <li>L1: 768Kb - 3Mb</li>
+                <li>L2: 4Mb - 16Mb</li>
+                <li>L3: 16Mb - 64Mb</li>
             </ul>
         </li>
-        <li><b>CMOS: 14nm</b></li>
-        <li><b>TDP:</b>180W</li>
+        <li><b>CMOS: 12nm</b></li>
+        <li><b>TDP:</b>180W - 250W</li>
     </ul>
     <img class="noBorder" src="images/Microprocesadores/Ryzen.png" alt=""  style="width: 400px;float: right">
 </section>
@@ -224,12 +229,14 @@
     <img class="noBorder" src="images/Microprocesadores/Core-i9.png" alt="" ><br>
 
     <ul>
-        <li>i9-7900X </li>
-        <li>18 Cores</li>
-        <li>4.30 GHz Max </li>
+        <li>i9-99800EX </li>
+        <li>18 Cores (36 hilos)</li>
+        <li>4.40 GHz Max </li>
         <li>24.75 MB Cache</li>
         <li>TDP  165 W </li>
+        <li>14nm</li>
     </ul>
+    <br>
     <a href="https://www.intel.la/content/www/xl/es/products/processors/core/x-series.html">Ver Mas</a>
 </section>
 
@@ -241,22 +248,27 @@
 <script src="js/reveal.js"></script>
 
 <script>
-	// More info https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-		history: true,
-
-		// More info https://github.com/hakimel/reveal.js#dependencies
-		dependencies: [
-			{src: 'plugin/markdown/marked.js'},
-			{src: 'plugin/markdown/markdown.js'},
-			{src: 'plugin/notes/notes.js', async: true},
-			{
-				src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-				hljs.initHighlightingOnLoad();
-			}
-			}
-		]
-	});
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        // Display presentation control arrows
+        controls: true,
+        controlsTutorial: true,
+        progress: true,
+        slideNumber: true,
+        history: false,
+        mouseWheel: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
 </script>
 </body>
 </html>
